@@ -18,43 +18,43 @@ public class compute {
      * @param args
      * @return
      */
-    public static double compute(String[] args){
+    public static double compute(String args){
         double result = 0;
-        String math = "";
-        Stack<Double> stack;
-        stack = new Stack<Double>();
-        for(int i = 0; i < stack.size(); i++){
-            Scanner itemN = new Scanner(System.in);
-            String item = itemN.toString();
-            if((!"+".equals(item)) && (!"-".equals(item)) &&
-                    (!"*".equals(item)) && (!"/".equals(item))){
-                double d = Double.parseDouble(item);
-                stack.push(d); 
+        Stack<Double> stack = new Stack<>();
+        Scanner itemN = new Scanner(args);
+        while(itemN.hasNext()){
+            if(itemN.hasNextDouble()){
+                stack.push(itemN.nextDouble());
             }
-            else if(("+".equals(item)) || ("-".equals(item)) ||
-                    ("*".equals(item)) || ("/".equals(item))){
-                math += item;
-            }
-        }
-        double lastResult = stack.pop();
-        while(math.length() != 0){
-            if(math.charAt(0) == '+'){
-                result += lastResult;
-            }
-            else if(math.charAt(0) == '-'){
-                result -= lastResult;
-            }
-            else if(math.charAt(0) == '*'){
-                result *= lastResult;
-            }
-            else if(math.charAt(0) == '/'){
-                result /= lastResult;
-            }
-            if(math.length()== 2){
-                math = math.substring(1);
-            }
-            else if(math.length() == 1){
-                math = "";
+            else{
+                switch (itemN.next()) {
+                    case "+" -> {
+                        double top = stack.pop();
+                        double nextTop = stack.pop();
+                        result = top + nextTop;
+                        stack.push(result);
+                    }
+                    case "-" -> {
+                        double top = stack.pop();
+                        double nextTop = stack.pop();
+                        result = nextTop - top;
+                        stack.push(result);
+                    }
+                    case "*" -> {
+                        double top = stack.pop();
+                        double nextTop = stack.pop();
+                        result = top * nextTop;
+                        stack.push(result);
+                    }
+                    case "/" -> {
+                        double top = stack.pop();
+                        double nextTop = stack.pop();
+                        result = nextTop / top;
+                        stack.push(result);
+                    }
+                    default -> {
+                    }
+                }
             }
         }
         return result;
