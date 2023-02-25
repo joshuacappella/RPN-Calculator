@@ -66,7 +66,7 @@ public class computeTest {
     
      /**
      * Test of division by zero in compute method, of class compute.
-     * NOT WORKING, PERHAPS SOMETHING WITH DELTA
+     * 
      */
     @org.junit.jupiter.api.Test
     public void testDivisionByZero(){
@@ -92,7 +92,7 @@ public class computeTest {
     
      /**
      * Test of long string input in compute method, of class compute.
-     * NOT IMPLEMENTED
+     * 
      */
     @org.junit.jupiter.api.Test
     public void testLongString(){
@@ -133,7 +133,7 @@ public class computeTest {
     
      /**
      * Test of an invalid operator input in compute method, of class compute.
-     * NOT WORKING
+     * 
      */
     @org.junit.jupiter.api.Test
     public void testInvalidOperator(){
