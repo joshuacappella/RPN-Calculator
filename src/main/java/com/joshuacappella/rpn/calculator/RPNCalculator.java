@@ -12,8 +12,11 @@ import static com.joshuacappella.rpn.calculator.compute.compute;
  */
 public class RPNCalculator {
     
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
-        String yamaha = "23.3 5 16.2 + 8 * -";
-        System.out.println(compute(yamaha));
+        System.out.println(compute("8.2 4.8 7.4 8 7.3 10 22.5 * + - / * -"));
     }
 }
